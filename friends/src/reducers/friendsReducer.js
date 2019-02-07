@@ -1,19 +1,34 @@
-import "../actions"
+import { FETCH_FRIENDS_START, FETCH_FRIENDS_SUCCESS, FETCH_FRIENDS_ERROR } from "../actions";
 
-const initalState = {
+const initialState = {
     fetchingFriends: false,
     friendsFetched: false,
-    friendsSaved: false,
-    savingFriends: false,
-    updatingFriend: false,
-    friendUpdated: false,
-    deletingFriend: false,
-    friendDeleted: false,
+    friendsAdded: false,
+    addingFriends: false,
     friends: [],
     error: null
 };
-export const freindReducer = () => {
-    switch () {
-        
+export const friendsReducer = (state = initialState, action ) => {
+    switch (action.type) {
+        case FETCH_FRIENDS_START:
+            return {
+                ...state,
+                fetchingFriends: true,
+            }
+        case FETCH_FRIENDS_SUCCESS:
+            return {
+                ...state,
+                fetchingFriends: false,
+                friendsFetched: true,
+                friends: action.payload
+            }
+        case FETCH_FRIENDS_ERROR:
+            return {
+                ...state,
+                error: action.payload,
+                fetchingFriends: false
+            }
+        default:
+            return state;
     }
 }
