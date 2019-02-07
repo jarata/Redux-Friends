@@ -8,6 +8,6 @@ const Friend = props => {
             <p>{props.email}</p>
         </div>
     )
-}
+};
 
 export default Friend;

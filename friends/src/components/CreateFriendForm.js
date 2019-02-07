@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 class CreateFriendForm extends Component {
     render() {
@@ -10,7 +9,5 @@ class CreateFriendForm extends Component {
         );
     }
 }
-
-CreateFriendForm.propTypes = {};
 
 export default CreateFriendForm;
