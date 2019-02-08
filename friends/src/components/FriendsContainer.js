@@ -24,8 +24,10 @@ class FriendsContainer extends Component {
 }
 
 const mapStateToProps = state => ({
-    error: state.error,
-
+    error: state.friendsReducer.error,
+    friends: state.friendsReducer.friends,
+    fetchingFriends: state.friendsReducer.fetchingFriends,
+    friendsFetched: state.friendsReducer.friendsFetched
 })
 
 export default connect(

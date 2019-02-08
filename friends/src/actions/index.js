@@ -6,7 +6,11 @@ export const FETCH_FRIENDS_ERROR = 'FETCH_FRIENDS_ERROR';
 
 export const getFriend = () => dispatch => {
     dispatch({ type: FETCH_FRIENDS_START });
-    axios.get('http://localhost:5000/api/friends')
-        .then(response => dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: console.log(response.data) }))
+    axios
+        .get('http://localhost:5000/api/friends')
+        .then(response => {
+            console.log(response)
+            dispatch({ type: FETCH_FRIENDS_SUCCESS, payload: response.data })
+        })
         .catch(error => dispatch({ type: FETCH_FRIENDS_ERROR, payload: error }))
 }

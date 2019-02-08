@@ -10,5 +10,4 @@ const FriendsList = props => {
         </div>
     )
 }
-
 export default FriendsList;
